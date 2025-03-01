@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff6767;
+  --color-primary-orange: #f24e1e;
+  --color-border-dark: #565454;
+  --color-grey-color: #747474;
+  --color-grey-light: #a1a3ab;
+}
+
+button {
+  cursor: pointer;
+}
