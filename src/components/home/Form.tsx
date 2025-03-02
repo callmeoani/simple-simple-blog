@@ -36,7 +36,7 @@ export default function Form({ isForUpdate = false }: Props) {
           />
         </div>
         <button className="mt-20 border-solid border border-gray-500 px-4 py-2 rounded-lg ">
-          Update
+          {isForUpdate ? "Update" : "Create"}
         </button>
       </form>
     </div>
