@@ -1,4 +1,4 @@
-export function calculateWinner(squares: number[]) {
+export function calculateWinner(squares: (string | null)[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -19,12 +19,12 @@ export function calculateWinner(squares: number[]) {
   return null;
 }
 
-export function calculateTurns(squares: number[]) {
+export function calculateTurns(squares: (string | null)[]) {
   return squares.filter((square) => !square).length;
 }
 
 export function calculateStatus(winner, turns, player) {
   if (!winner && !turns) return "Draw";
   if (winner) return `Winner ${winner}`;
-  return `Next player: ${player}`
+  return `Next player: ${player}`;
 }

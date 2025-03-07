@@ -6,11 +6,13 @@ import {
 } from "../../utilities/game-helpers";
 import Square from "./Square";
 
-export default function Board() {
-  const squares = useGameStore((state) => state.squares);
-  const setSquares = useGameStore((state) => state.setSquares);
-  const xIsNext = useGameStore((state) => state.xIsNext);
-  const setXIsNext = useGameStore((state) => state.setXIsNext);
+type Props = {
+  xIsNext: boolean;
+  squares: (string | null)[];
+  onPlay: () => void;
+};
+
+export default function Board({ xIsNext, squares, onPlay }: Props) {
   const player = xIsNext ? "X" : "O";
   const winner = calculateWinner(squares);
   const turns = calculateTurns(squares);
@@ -21,10 +23,10 @@ export default function Board() {
     const nextSquares = squares.slice();
     nextSquares[i] = player;
     setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+    // setXIsNext(!xIsNext);
   };
   return (
-    <>
+    <div>
       <div style={{ marginBottom: "0.5rem" }}>{status}</div>
 
       <div
@@ -45,6 +47,6 @@ export default function Board() {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }

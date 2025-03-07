@@ -2,13 +2,13 @@ import { create } from "zustand";
 import { combine } from "zustand/middleware";
 
 const useGameStore = create(
-  combine({ squares: Array(9).fill(null), xIsNext: true }, (set) => {
+  combine({ history: [Array(9).fill(null)], xIsNext: true }, (set) => {
     return {
-      setSquares: (nextSquares: unknown) => {
+      setHistory: (nextSquares: unknown) => {
         set((state) => ({
-          squares:
+          history:
             typeof nextSquares === "function"
-              ? nextSquares(state.squares)
+              ? nextSquares(state.history)
               : nextSquares,
         }));
       },
